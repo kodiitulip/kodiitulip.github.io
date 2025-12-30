@@ -4,6 +4,7 @@ import { ArrowUp } from 'lucide-react';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const BackUpButton = () => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -21,10 +22,10 @@ const BackUpButton = () => {
       asChild
       size='icon-sm'
       className={cn('fixed right-10 bottom-10', !visible && 'hidden')}>
-      <a href='#navbar'>
+      <Link href='#navbar'>
         <ArrowUp />
         <span className='sr-only'>Voltar para cima</span>
-      </a>
+      </Link>
     </Button>
   );
 };

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Button } from '../ui/button';
 import { ToggleThemeButton } from '../ui/toggle-theme-button';
 
@@ -14,7 +15,7 @@ const Navbar = () => {
           variant='ghost'
           accentColor='iris'
           asChild>
-          <a href='/#hero'>Home</a>
+          <Link href='/#hero'>Home</Link>
         </Button>
         <Button
           variant='ghost'
