@@ -29,9 +29,9 @@ export default function RootLayout({
     <html
       lang='pt-BR'
       className='h-full'>
-      <body className='antialiased h-full flex flex-col'>
+      <body className='antialiased h-full flex flex-col theme-color-love'>
         <Navbar />
-        <main className='window-border accent-iris mt-5 flex-1'>
+        <main className='window-border mt-5 flex-1'>
           <p className='window-title'>Main</p>
           {children}
           <BackUpButton />

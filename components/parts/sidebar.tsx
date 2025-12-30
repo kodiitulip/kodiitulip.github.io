@@ -32,7 +32,7 @@ const Sidebar = ({ ...props }: Omit<ButtonProps, 'onClick'>) => {
         <MenuIcon />
         <span className='sr-only'>Menu</span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className='accent-iris mt-2'>
+      <DropdownMenuContent className='mt-2'>
         {items.map(({ title, url }) => (
           <DropdownMenuItem
             key={title}
@@ -41,11 +41,7 @@ const Sidebar = ({ ...props }: Omit<ButtonProps, 'onClick'>) => {
           </DropdownMenuItem>
         ))}
         <DropdownMenuItem asChild>
-          <ToggleThemeButton
-            size='default'
-            className='accent-iris'>
-            Mudar tema
-          </ToggleThemeButton>
+          <ToggleThemeButton size='default'>Mudar tema</ToggleThemeButton>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

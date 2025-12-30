@@ -5,7 +5,7 @@ import Link from 'next/link';
 const NotFound = () => {
   return (
     <section className='flex flex-col gap-4 max-w-140 m-auto justify-center items-center h-full text-center'>
-      <p className='font-bold font-firapropo stext-iris text-6xl shrink-0'>󱚟</p>
+      <i className='nf nf-md-robot_confused stext-iris text-6xl' />
       <h1 className='font-bold stext-iris text-2xl shrink-0'>Parece que você se perdeu.</h1>
       <Button
         size='lg'

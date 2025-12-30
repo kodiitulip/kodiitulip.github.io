@@ -9,11 +9,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'sbg-overlay hover:stext-surface hover:bg-(--accent) focus-visible:bg-(--accent)',
-        ghost: 'accent-overlay hover:bg-(--accent) focus-visible:bg-(--accent)',
-        link: 'accent-text underline-offset-4 hover:underline hover:text-(--accent) focus-visible:underline focus-visible:text-(--accent)',
-        outline:
-          'sborder-overlay accent-high focus-visible:border-(--accent) focus-visible:stext-surface focus-visible:bg-(--accent) hover:border-(--accent) hover:stext-surface hover:bg-(--accent) border-2'
+        default: 'sbg-overlay hover:stext-surface hover:bg-(--theme-color) focus-visible:bg-(--theme-color)',
+        ghost:
+          'hover:bg-(--theme-color) focus-visible:bg-(--theme-color) hover:stext-overlay focus-visible:stext-overlay',
+        link: 'underline-offset-4 hover:underline hover:text-(--theme-color) focus-visible:underline focus-visible:text-(--theme-color)'
       },
       size: {
         'default': 'h-9 px-4 py-2 has-[>svg]:px-3',
@@ -22,21 +21,11 @@ const buttonVariants = cva(
         'icon': 'size-9',
         'icon-sm': 'size-8',
         'icon-lg': 'size-10'
-      },
-      accentColor: {
-        default: '',
-        love: 'accent-love hover:not-data-[variant=link]:stext-overlay focus-visible:not-data-[variant=link]:stext-overlay',
-        gold: 'accent-gold hover:not-data-[variant=link]:stext-overlay focus-visible:not-data-[variant=link]:stext-overlay',
-        rose: 'accent-rose hover:not-data-[variant=link]:stext-overlay focus-visible:not-data-[variant=link]:stext-overlay',
-        pine: 'accent-pine hover:not-data-[variant=link]:stext-overlay focus-visible:not-data-[variant=link]:stext-overlay',
-        foam: 'accent-foam hover:not-data-[variant=link]:stext-overlay focus-visible:not-data-[variant=link]:stext-overlay',
-        iris: 'accent-iris hover:not-data-[variant=link]:stext-overlay focus-visible:not-data-[variant=link]:stext-overlay'
       }
     },
     defaultVariants: {
       variant: 'default',
-      size: 'default',
-      accentColor: 'default'
+      size: 'default'
     }
   }
 );
@@ -46,14 +35,7 @@ type ButtonProps = React.ComponentProps<'button'>
     asChild?: boolean;
   };
 
-function Button({
-  className,
-  variant = 'default',
-  size = 'default',
-  accentColor = 'default',
-  asChild = false,
-  ...props
-}: ButtonProps) {
+function Button({ className, variant = 'default', size = 'default', asChild = false, ...props }: ButtonProps) {
   const Comp = asChild ? Slot : 'button';
 
   return (
@@ -61,8 +43,7 @@ function Button({
       data-slot='button'
       data-variant={variant}
       data-size={size}
-      data-accent-color={accentColor}
-      className={cn(buttonVariants({ variant, size, accentColor, className }))}
+      className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
   );

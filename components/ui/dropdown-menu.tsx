@@ -30,7 +30,6 @@ function DropdownMenuTrigger({
   className,
   variant = 'default',
   size = 'default',
-  accentColor = 'default',
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger> & VariantProps<typeof buttonVariants>) {
   return (
@@ -38,8 +37,7 @@ function DropdownMenuTrigger({
       data-slot='dropdown-menu-trigger'
       data-variant={variant}
       data-size={size}
-      data-accent-color={accentColor}
-      className={cn(buttonVariants({ variant, size, accentColor, className }))}
+      className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
   );
@@ -56,7 +54,7 @@ function DropdownMenuContent({
         data-slot='dropdown-menu-content'
         sideOffset={sideOffset}
         className={cn(
-          'sbg-cbase window-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-32 origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto gap-4 flex flex-col',
+          'sbg-plate window-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-32 origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto gap-4 flex flex-col',
           className
         )}
         {...props}
@@ -78,7 +76,6 @@ function DropdownMenuItem({
   className,
   variant = 'default',
   size = 'default',
-  accentColor = 'default',
   inset,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Item> & {
@@ -90,10 +87,9 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       data-size={size}
-      data-accent-color={accentColor}
       className={cn(
         'text-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-8',
-        buttonVariants({ variant, size, accentColor, className }),
+        buttonVariants({ variant, size, className }),
         'flex'
       )}
       {...props}

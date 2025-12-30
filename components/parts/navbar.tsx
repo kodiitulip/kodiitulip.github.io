@@ -8,7 +8,7 @@ const Navbar = () => {
     <nav
       id='navbar'
       className='pt-2.5 @container'>
-      <div className='window-border my-0 flex gap-2 items-center accent-iris'>
+      <div className='window-border my-0 flex gap-2 items-center'>
         <p className='window-title'>Navbar</p>
         <strong className='flex-1'>Kodie</strong>
 
@@ -17,18 +17,14 @@ const Navbar = () => {
             <Button
               key={title}
               variant='ghost'
-              accentColor='iris'
               asChild>
               <Link href={url}>{title}</Link>
             </Button>
           ))}
-          <ToggleThemeButton accentColor='iris' />
+          <ToggleThemeButton />
         </div>
 
-        <Sidebar
-          className='@[42rem]:hidden'
-          accentColor='iris'
-        />
+        <Sidebar className='@[42rem]:hidden' />
       </div>
     </nav>
   );
