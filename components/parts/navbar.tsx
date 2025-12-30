@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { ToggleThemeButton } from '../ui/toggle-theme-button';
-import { Sidebar } from './sidebar';
+import { NavbarItems, Sidebar } from './sidebar';
 
 const Navbar = () => {
   return (
@@ -13,27 +13,15 @@ const Navbar = () => {
         <strong className='flex-1'>Kodie</strong>
 
         <div className='hidden @[42rem]:flex gap-2 items-center'>
-          <Button
-            variant='ghost'
-            accentColor='iris'
-            asChild>
-            <Link href='/#hero'>Home</Link>
-          </Button>
-          <Button
-            variant='ghost'
-            accentColor='iris'>
-            Projeto de Jogos
-          </Button>
-          <Button
-            variant='ghost'
-            accentColor='iris'>
-            Outros Projetos
-          </Button>
-          <Button
-            variant='ghost'
-            accentColor='iris'>
-            Button
-          </Button>
+          {NavbarItems.map(({ title, url }) => (
+            <Button
+              key={title}
+              variant='ghost'
+              accentColor='iris'
+              asChild>
+              <Link href={url}>{title}</Link>
+            </Button>
+          ))}
           <ToggleThemeButton accentColor='iris' />
         </div>
 

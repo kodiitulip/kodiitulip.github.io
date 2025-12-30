@@ -7,7 +7,7 @@ import { ToggleThemeButton } from '../ui/toggle-theme-button';
 const items = [
   {
     title: 'Home',
-    url: '#hero'
+    url: '/#hero'
   },
   {
     title: 'Projetos de Jogos',
