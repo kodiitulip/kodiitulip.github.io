@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { SiGithub, SiItchdotio } from '@icons-pack/react-simple-icons';
-import { Gamepad2Icon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -41,47 +40,53 @@ export const GamesSection = () => {
   return (
     <section
       id='games'
-      className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto'>
+      className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto @xl:max-w-5xl'>
       <h1 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Jogos</h1>
       <i className='stext-subtle text-xs @[42rem]:text-base'>
         Aqui deixo amostra meus projetos de jogos que chegaram a um estado jogável
       </i>
 
-      {games.map(({ title, imgSrc, itchIoPage, sourceCodePage }, idx) => (
-        <div
-          key={`${title}-${idx}`}
-          className='sbg-overlay mt-12 w-full'>
-          <h1 className='my-2 text-center text-lg text-(--theme-color)'>
-            <strong>{title}</strong>
-          </h1>
-          <div className='relative aspect-video w-full'>
-            <Image
-              src={imgSrc}
-              alt={`Banner de um jogo chamado ${title}`}
-              fill
-              className='object-contain'
-            />
+      <div className='flex w-full flex-wrap justify-around gap-x-4 gap-y-12'>
+        {games.map(({ title, imgSrc, itchIoPage, sourceCodePage }, idx) => (
+          <div
+            key={`${title}-${idx}`}
+            className='sbg-overlay w-full max-w-120'>
+            <h1 className='my-2 text-center text-lg text-(--theme-color)'>
+              <strong>{title}</strong>
+            </h1>
+            <div className='relative aspect-video w-full'>
+              <Image
+                src={imgSrc}
+                alt={`Banner de um jogo chamado ${title}`}
+                fill
+                className='object-contain'
+              />
+            </div>
+            <div className='panel flex-col justify-between md:flex-row'>
+              <Button
+                variant='link'
+                className='w-fit'
+                asChild>
+                <Link
+                  href={itchIoPage}
+                  target='_blank'>
+                  <SiItchdotio size={16} /> Página Itch.io
+                </Link>
+              </Button>
+              <Button
+                variant='link'
+                className='w-fit'
+                asChild>
+                <Link
+                  href={sourceCodePage}
+                  target='_blank'>
+                  <SiGithub size={16} /> Código Fonte
+                </Link>
+              </Button>
+            </div>
           </div>
-          <div className='panel justify-between'>
-            <Button
-              variant='link'
-              className='w-fit'
-              asChild>
-              <Link href={itchIoPage}>
-                <SiItchdotio size={16} /> Página Itch.io
-              </Link>
-            </Button>
-            <Button
-              variant='link'
-              className='w-fit'
-              asChild>
-              <Link href={sourceCodePage}>
-                <SiGithub size={16} /> Código Fonte
-              </Link>
-            </Button>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 };
