@@ -1,0 +1,87 @@
+import { Button } from '@/components/ui/button';
+import { SiGithub, SiItchdotio } from '@icons-pack/react-simple-icons';
+import { Gamepad2Icon } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const games = [
+  {
+    title: 'Windy Seas',
+    imgSrc: 'https://img.itch.zone/aW1nLzI0Nzg2Mjc1LnBuZw==/315x250%23c/V5tjpI.png',
+    itchIoPage: 'https://kodiitulip.itch.io/windy-seas',
+    sourceCodePage: 'https://github.com/kodiitulip/windy-seas'
+  },
+  {
+    title: 'Specters Case',
+    imgSrc: 'https://img.itch.zone/aW1nLzI0MTU2NjAyLnBuZw==/315x250%23c/cqmwcx.png',
+    itchIoPage: 'https://kodiitulip.itch.io/specters-case',
+    sourceCodePage: 'https://github.com/kodiitulip/specters-case'
+  },
+  {
+    title: 'Frozen Inferno',
+    imgSrc: 'https://img.itch.zone/aW1nLzIzMjcyMDkzLnBuZw==/315x250%23c/L4kPQA.png',
+    itchIoPage: 'https://kodiitulip.itch.io/frozen-inferno',
+    sourceCodePage: 'https://github.com/kodiitulip/frozen-inferno'
+  },
+  {
+    title: 'Gestalt Game',
+    imgSrc: 'https://img.itch.zone/aW1nLzE3NDUwMjgxLnBuZw==/315x250%23c/UHGg3H.png',
+    itchIoPage: 'https://kodiitulip.itch.io/gestalt-game',
+    sourceCodePage: 'https://github.com/kodiitulip/gestalt-game'
+  },
+  {
+    title: "Sphinx's Gold",
+    imgSrc: 'https://img.itch.zone/aW1nLzE1NzA0ODQ5LnBuZw==/315x250%23c/U27hvQ.png',
+    itchIoPage: 'https://kodiitulip.itch.io/sphinxs-gold',
+    sourceCodePage: 'https://github.com/kodiitulip/ouro-da-esfinge'
+  }
+];
+
+export const GamesSection = () => {
+  return (
+    <section
+      id='games'
+      className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto'>
+      <h1 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Jogos</h1>
+      <i className='stext-subtle text-xs @[42rem]:text-base'>
+        Aqui deixo amostra meus projetos de jogos que chegaram a um estado jogável
+      </i>
+
+      {games.map(({ title, imgSrc, itchIoPage, sourceCodePage }, idx) => (
+        <div
+          key={`${title}-${idx}`}
+          className='sbg-overlay mt-12 w-full'>
+          <h1 className='my-2 text-center text-lg text-(--theme-color)'>
+            <strong>{title}</strong>
+          </h1>
+          <div className='relative aspect-video w-full'>
+            <Image
+              src={imgSrc}
+              alt={`Banner de um jogo chamado ${title}`}
+              fill
+              className='object-contain'
+            />
+          </div>
+          <div className='panel justify-between'>
+            <Button
+              variant='link'
+              className='w-fit'
+              asChild>
+              <Link href={itchIoPage}>
+                <SiItchdotio size={16} /> Página Itch.io
+              </Link>
+            </Button>
+            <Button
+              variant='link'
+              className='w-fit'
+              asChild>
+              <Link href={sourceCodePage}>
+                <SiGithub size={16} /> Código Fonte
+              </Link>
+            </Button>
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+};

@@ -4,7 +4,8 @@ import { LanguagesSession, SkillsSession } from './skills';
 
 const Home = () => {
   return (
-    <div className='@container relative h-full'>
+    <div className='@container h-full'>
+      <p className='window-title'>about</p>
       <HeroSection />
 
       <SkillsSession />

@@ -4,25 +4,7 @@ import { MenuIcon } from 'lucide-react';
 import { ButtonProps } from '../ui/button';
 import { ToggleThemeButton } from '../ui/toggle-theme-button';
 import { ChangeColorButton } from '../ui/change-color-button';
-
-const items = [
-  {
-    title: 'Home',
-    url: '/#hero'
-  },
-  {
-    title: 'Projetos de Jogos',
-    url: '#'
-  },
-  {
-    title: 'Outros Projetos',
-    url: '#'
-  },
-  {
-    title: 'Contato',
-    url: '/#contact'
-  }
-];
+import { NavItems } from './navbar';
 
 const Sidebar = ({ ...props }: Omit<ButtonProps, 'onClick'>) => {
   return (
@@ -34,7 +16,7 @@ const Sidebar = ({ ...props }: Omit<ButtonProps, 'onClick'>) => {
         <span className='sr-only'>Menu</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='mt-2'>
-        {items.map(({ title, url }) => (
+        {NavItems.map(({ title, url }) => (
           <DropdownMenuItem
             key={title}
             variant='default'
@@ -57,4 +39,4 @@ const Sidebar = ({ ...props }: Omit<ButtonProps, 'onClick'>) => {
   );
 };
 
-export { Sidebar, items as NavbarItems };
+export { Sidebar };

@@ -4,8 +4,8 @@ import { Navbar } from '@/components/parts/navbar';
 import { BackUpButton } from '@/components/ui/back-up-button';
 
 export const metadata: Metadata = {
-  title: "Kodie's Portifolio",
-  description: 'Portifolio de jogos de Kodie',
+  title: 'Kodie Sales | Portifolio',
+  description: 'Portifolio de Kodie',
   icons: [
     {
       rel: 'icon',
@@ -32,7 +32,6 @@ export default function RootLayout({
       <body className='theme-data-color flex min-h-full flex-col antialiased'>
         <Navbar />
         <main className='window-border mt-5 flex-1'>
-          <p className='window-title'>Main</p>
           {children}
           <BackUpButton />
         </main>

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Gamepad2Icon } from 'lucide-react';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
@@ -14,10 +15,13 @@ const HeroSection = () => {
         ideias
       </i>
       <Button
+        asChild
         className='max-w-fit'
         size='lg'>
-        <Gamepad2Icon />
-        Meus Projetos
+        <Link href='/projects'>
+          <Gamepad2Icon />
+          Meus Projetos
+        </Link>
       </Button>
     </section>
   );

@@ -45,28 +45,38 @@
 
 @layer components {
   .window-border {
-    @apply border-2 p-3 m-2 mt-2.5 relative hover:border-(--theme-color) transition-colors sborder-hmed;
-    & > .window-title:first-child {
-      @apply absolute -top-2.5 px-1 text-sm sbg-plate stext-hmed transition-colors;
+    @apply sborder-hmed relative m-2 mt-2.5 border-2 p-3 transition-colors hover:border-(--theme-color);
+    & .window-title:first-child {
+      @apply sbg-plate stext-hmed absolute -top-3 px-1 text-sm transition-colors;
     }
     @variant focus-visible {
-      & > .window-title:first-child {
+      & .window-title:first-child {
         @apply text-(--theme-color);
       }
     }
     @variant hover {
-      & > .window-title:first-child {
+      & .window-title:first-child {
         @apply text-(--theme-color);
       }
     }
   }
 
-  .panel {
-    @apply sbg-overlay flex flex-col gap-3 p-4 aspect-square max-w-60 max-h-60 size-60 items-center justify-start transition-colors;
+  .square-panel {
+    @apply sbg-overlay flex aspect-square size-60 max-h-60 max-w-60 flex-col items-center justify-start gap-3 p-4 transition-colors;
 
     @variant hover {
       &.hoverable {
-        @apply bg-(--theme-color) stext-overlay flex flex-col gap-3 p-4 aspect-square max-w-60 items-center justify-start;
+        @apply stext-overlay bg-(--theme-color);
+      }
+    }
+  }
+
+  .panel {
+    @apply sbg-overlay flex items-center gap-3 p-4 transition-colors;
+
+    @variant hover {
+      &.hoverable {
+        @apply stext-overlay bg-(--theme-color);
       }
     }
   }
@@ -140,20 +150,18 @@
 
 @layer base {
   * {
-    @apply scroll-smooth;
+    @apply scroll-smooth transition-colors;
     scrollbar-width: thin;
     scrollbar-color: var(--theme-color) transparent;
-  }
-
-  html {
-    --theme-color: var(--color-text);
-    &:is([data-theme='dawn'] *) {
-      --theme-color: var(--color-dawn-text);
-    }
   }
 
   html,
   body {
     @apply sbg-plate stext-text font-fira-nf transition-colors;
+
+    --theme-color: var(--color-text);
+    &:is([data-theme='dawn'] *) {
+      --theme-color: var(--color-dawn-text);
+    }
   }
 }

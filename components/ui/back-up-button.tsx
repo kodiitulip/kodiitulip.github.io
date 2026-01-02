@@ -5,28 +5,37 @@ import { Button } from './button';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { ToggleThemeButton } from './toggle-theme-button';
+import { ChangeColorButton } from './change-color-button';
 
 const BackUpButton = () => {
   const [visible, setVisible] = useState<boolean>(false);
-  const handleScrollOffset = () => {
-    const offset = window.pageYOffset;
-    setVisible(offset >= 10);
-  };
+  const handleScrollOffset = () => setVisible(window.pageYOffset >= 10);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScrollOffset, { passive: true });
+    handleScrollOffset();
     return () => window.removeEventListener('scroll', handleScrollOffset);
   }, []);
   return (
-    <Button
-      asChild
-      size='icon-sm'
-      className={cn('fixed right-10 bottom-10', !visible && 'hidden')}>
-      <Link href='#navbar'>
-        <ArrowUp />
-        <span className='sr-only'>Voltar para cima</span>
-      </Link>
-    </Button>
+    <div className={cn('fixed right-10 bottom-10 gap-2', visible ? 'flex' : 'hidden')}>
+      <Button
+        asChild
+        size='icon-sm'>
+        <Link href='#navbar'>
+          <ArrowUp />
+          <span className='sr-only'>Voltar para cima</span>
+        </Link>
+      </Button>
+      <ToggleThemeButton
+        size='icon-sm'
+        variant='default'
+      />
+      <ChangeColorButton
+        size='icon-sm'
+        variant='default'
+      />
+    </div>
   );
 };
 

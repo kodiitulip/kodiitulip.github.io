@@ -51,7 +51,6 @@ const ChangeColorButton = ({ variant = 'ghost', size = 'icon', children, ...prop
               variant='inverted'
               style={
                 {
-                  // color: `var(--color-${value})`
                   '--theme-color': `var(--color-${value})`
                 } as React.CSSProperties
               }
