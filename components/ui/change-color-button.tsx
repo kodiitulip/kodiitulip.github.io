@@ -32,7 +32,7 @@ const ChangeColorButton = ({ variant = 'ghost', size = 'icon', children, ...prop
         <Button
           {...props}
           variant={variant}
-          className='text-(--theme-color) hover:stext-overlay'
+          className='hover:stext-overlay text-(--theme-color)'
           size={size}>
           <PaletteIcon size={24} />
           <span className='sr-only'>Mude a paleta de cores</span>

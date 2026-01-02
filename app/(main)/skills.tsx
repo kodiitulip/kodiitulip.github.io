@@ -5,7 +5,10 @@ import {
   SiPython,
   SiJavascript,
   SiTypescript,
-  SiRust
+  SiRust,
+  SiNixos,
+  SiLua,
+  SiOpenjdk
 } from '@icons-pack/react-simple-icons';
 import { GlobeIcon, BrushIcon, FileQuestionIcon } from 'lucide-react';
 
@@ -13,10 +16,10 @@ const SkillsSession = () => {
   return (
     <section
       id='skills'
-      className='flex flex-col gap-4 max-w-140 mx-8 @lg:mx-auto py-6 my-12'>
-      <h2 className='text-lg @sm:text-2xl @[43rem]:text-4xl text-(--theme-color) font-medium'>Minhas Habilidades</h2>
+      className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto'>
+      <h2 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Minhas Habilidades</h2>
       <i className='stext-subtle text-xs @[42rem]:text-base'>E tecnologias que uso</i>
-      <div className='flex flex-wrap gap-6 justify-around'>
+      <div className='flex flex-wrap justify-around gap-6'>
         <div className='panel hoverable'>
           <SiGithub size={40} />
           <h3>
@@ -70,16 +73,18 @@ const LanguagesSession = () => {
   return (
     <section
       id='languages'
-      className='flex flex-col gap-4 max-w-140 mx-8 @lg:mx-auto py-6 my-12'>
-      <h2 className='text-lg @sm:text-2xl @[43rem]:text-4xl text-(--theme-color) font-medium'>
-        Linguagens que Aprendi
+      className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto'>
+      <h2 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>
+        Linguagens de Programação
       </h2>
-      <i className='stext-subtle text-xs @[42rem]:text-base'>E algumas que ainda estou experimentando</i>
-      <div className='flex flex-wrap gap-6 justify-around'>
+      <i className='stext-subtle text-xs @[42rem]:text-base'>
+        As que sei bastante e algumas que ainda estou experimentando
+      </i>
+      <div className='flex flex-wrap justify-around gap-6'>
         <div className='panel hoverable'>
           <SiPython size={40} />
           <h3>
-            <strong>Clássico Python</strong>
+            <strong>Python</strong>
           </h3>
           <i className='text-xs'>
             Python foi a primeira linguagem de programação que eu aprendi. Muito do que sei sobre programação eu aprendi
@@ -95,8 +100,8 @@ const LanguagesSession = () => {
             <strong>Java/Typescript</strong>
           </h3>
           <i className='text-xs'>
-            Não se pode deixar de falar delas, o par que move a internet a anos. Sempre irei preferir trabalhar com
-            Typescript pois passei a apreciar "tipagem forte"
+            As linguagens do mundo Web. Sempre irei preferir trabalhar com Typescript pois passei a apreciar 'Type
+            Safety'
           </i>
         </div>
         <div className='panel hoverable'>
@@ -111,13 +116,26 @@ const LanguagesSession = () => {
           <div className='mx-auto block'>🦀</div>
         </div>
         <div className='panel hoverable'>
-          <FileQuestionIcon size={40} />
+          <SiOpenjdk size={42} />
           <h3>
             <strong>???</strong>
           </h3>
           <i className='text-xs'>???</i>
         </div>
       </div>
+      <i>Menções Honrosas</i>
+      <ul>
+        <li>
+          GdScript <SiGodotengine size={16} />
+        </li>
+        <li>
+          Nix <SiNixos size={16} />
+        </li>
+        <li>
+          Lua <SiLua size={16} />
+        </li>
+        <li></li>
+      </ul>
     </section>
   );
 };

@@ -5,8 +5,8 @@ const HeroSection = () => {
   return (
     <section
       id='hero'
-      className='flex flex-col gap-4 max-w-140 mx-8 @lg:mx-auto py-6 my-12'>
-      <h1 className='text-lg @sm:text-2xl @[43rem]:text-4xl text-(--theme-color) font-medium'>
+      className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto'>
+      <h1 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>
         Hello! Me chamo Kodie! <br /> Sou um desenvolvedor de <strong>Jogos</strong>
       </h1>
       <i className='stext-subtle text-xs @[42rem]:text-base'>

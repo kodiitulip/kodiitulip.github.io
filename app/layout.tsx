@@ -29,7 +29,7 @@ export default function RootLayout({
     <html
       lang='pt-BR'
       className='h-full'>
-      <body className='antialiased min-h-full flex flex-col theme-data-color'>
+      <body className='theme-data-color flex min-h-full flex-col antialiased'>
         <Navbar />
         <main className='window-border mt-5 flex-1'>
           <p className='window-title'>Main</p>

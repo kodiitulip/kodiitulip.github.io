@@ -8,13 +8,13 @@ const Navbar = () => {
   return (
     <nav
       id='navbar'
-      className='pt-2.5 @container'>
-      <div className='window-border my-0 flex gap-2 items-center'>
+      className='@container pt-2.5'>
+      <div className='window-border my-0 flex items-center gap-2'>
         <p className='window-title'>Navbar</p>
         <i className='nf nf-md-robot_love' />
         <strong className='flex-1'>Kodie</strong>
 
-        <div className='hidden @[42rem]:flex gap-2 items-center'>
+        <div className='hidden items-center gap-2 @[42rem]:flex'>
           {NavbarItems.map(({ title, url }) => (
             <Button
               key={title}
