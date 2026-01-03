@@ -52,16 +52,17 @@ export const OtherProjectsSection = () => {
                 className='object-contain'
               />
             </div>
-            <Button
-              variant='link'
-              className='w-fit'
-              asChild>
-              <Link
-                href={sourceCodePage}
-                target='_blank'>
-                <SiGithub size={16} /> Código Fonte
-              </Link>
-            </Button>
+            <div className='panel flex-col justify-between md:flex-row'>
+              <Button
+                variant='link'
+                asChild>
+                <Link
+                  href={sourceCodePage}
+                  target='_blank'>
+                  <SiGithub size={16} /> Código Fonte
+                </Link>
+              </Button>
+            </div>
           </div>
         ))}
       </div>

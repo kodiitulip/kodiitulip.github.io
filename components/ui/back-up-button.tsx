@@ -18,7 +18,8 @@ const BackUpButton = () => {
     return () => window.removeEventListener('scroll', handleScrollOffset);
   }, []);
   return (
-    <div className={cn('fixed right-10 bottom-10 gap-2', visible ? 'flex' : 'hidden')}>
+    <div
+      className={cn('sbg-plate fixed right-4 bottom-4 gap-2 p-1 md:right-8 md:bottom-8', visible ? 'flex' : 'hidden')}>
       <Button
         asChild
         size='icon-sm'>

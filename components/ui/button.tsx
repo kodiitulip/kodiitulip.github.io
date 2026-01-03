@@ -9,11 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'sbg-overlay hover:stext-surface hover:bg-(--theme-color) focus-visible:bg-(--theme-color)',
-        inverted: 'bg-(--theme-color) focus-visible:sbg-overlay hover:sbg-overlay stext-surface hover:stext-text',
+        default:
+          'sbg-overlay hover:stext-surface hover:bg-(--theme-color) focus-visible:bg-(--theme-color) active:bg-(--theme-color)',
+        inverted:
+          'bg-(--theme-color) focus-visible:sbg-overlay hover:sbg-overlay active:sbg-overlay stext-surface hover:stext-text',
         ghost:
-          'hover:bg-(--theme-color) focus-visible:bg-(--theme-color) hover:stext-overlay focus-visible:stext-overlay',
-        link: 'underline-offset-4 hover:underline hover:text-(--theme-color) focus-visible:underline focus-visible:text-(--theme-color)'
+          'hover:bg-(--theme-color) focus-visible:bg-(--theme-color) active:bg-(--theme-color) active:stext-overlay hover:stext-overlay focus-visible:stext-overlay',
+        link: 'underline-offset-4 hover:underline hover:text-(--theme-color) focus-visible:underline focus-visible:text-(--theme-color) active:text-(--theme-color) active:underline'
       },
       size: {
         'default': 'h-9 px-4 py-2 has-[>svg]:px-3',

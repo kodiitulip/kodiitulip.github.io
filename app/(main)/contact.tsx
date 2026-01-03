@@ -1,3 +1,5 @@
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { SiGithub, SiGmail, SiItchdotio } from '@icons-pack/react-simple-icons';
 import { MailIcon } from 'lucide-react';
 import Link from 'next/link';
@@ -14,21 +16,21 @@ const ContactSection = () => {
         <Link
           href='mailto:kodii.tulip@gmail.com'
           target='_blank'
-          className='panel hoverable'>
+          className={cn(buttonVariants({ variant: 'link', className: 'sbg-overlay h-max p-4' }))}>
           <MailIcon size={20} />
           <p className='text-sm'>kodii.tulip@gmail.com</p>
         </Link>
         <Link
           href='https://github.com/kodiitulip'
           target='_blank'
-          className='panel hoverable'>
+          className={cn(buttonVariants({ variant: 'link', className: 'sbg-overlay h-max p-4' }))}>
           <SiGithub size={20} />
           <p className='text-sm'>github:kodiitulip</p>
         </Link>
         <Link
           href='https://kodiitulip.itch.io'
           target='_blank'
-          className='panel hoverable'>
+          className={cn(buttonVariants({ variant: 'link', className: 'sbg-overlay h-max p-4' }))}>
           <SiItchdotio size={20} />
           <p className='text-sm'>kodiitulip.itch.io</p>
         </Link>
