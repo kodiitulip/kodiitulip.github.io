@@ -1,6 +1,6 @@
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { SiGithub, SiGmail, SiItchdotio } from '@icons-pack/react-simple-icons';
+import { SiGithub, SiItchdotio } from '@icons-pack/react-simple-icons';
 import { MailIcon } from 'lucide-react';
 import Link from 'next/link';
 

@@ -10,12 +10,12 @@ import { ChangeColorButton } from './change-color-button';
 
 const BackUpButton = () => {
   const [visible, setVisible] = useState<boolean>(false);
-  const handleScrollOffset = () => setVisible(window.pageYOffset >= 10);
+  const handleScrollOffset = () => () => setVisible(window.pageYOffset >= 10);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScrollOffset, { passive: true });
-    handleScrollOffset();
-    return () => window.removeEventListener('scroll', handleScrollOffset);
+    window.addEventListener('scroll', handleScrollOffset(), { passive: true });
+    handleScrollOffset()();
+    return () => window.removeEventListener('scroll', handleScrollOffset());
   }, []);
   return (
     <div

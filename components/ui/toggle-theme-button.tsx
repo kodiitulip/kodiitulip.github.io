@@ -10,19 +10,23 @@ const ToggleThemeButton = ({ variant = 'ghost', size = 'icon', children, ...prop
   const [theme, setTheme] = useState<'dawn' | 'default'>('default');
 
   useEffect(() => {
-    const newTheme = localStorage.getItem('data-theme')
-      ? (localStorage.getItem('data-theme') as 'dawn' | 'default')
-      : window.matchMedia('(prefers-color-scheme: light)').matches
-        ? 'dawn'
-        : 'default';
-    setTheme(applyTheme(newTheme));
+    const initialTheme = () => {
+      const newTheme = localStorage.getItem('data-theme')
+        ? (localStorage.getItem('data-theme') as 'dawn' | 'default')
+        : window.matchMedia('(prefers-color-scheme: light)').matches
+          ? 'dawn'
+          : 'default';
+      setTheme(applyTheme(newTheme));
+    };
+
+    initialTheme();
   }, []);
   return (
     <Button
       {...props}
       variant={variant}
       size={size}
-      onClick={(_) => setTheme((prev) => applyTheme(prev === 'dawn' ? 'default' : 'dawn'))}>
+      onClick={() => setTheme((prev) => applyTheme(prev === 'dawn' ? 'default' : 'dawn'))}>
       {theme === 'dawn' ? <Sun size={24} /> : <Moon size={24} />}
       <span className='sr-only'>Toggle dark and light theme</span>
       {children}

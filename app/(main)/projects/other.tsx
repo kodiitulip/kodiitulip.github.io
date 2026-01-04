@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { SiGithub, SiItchdotio } from '@icons-pack/react-simple-icons';
+import { SiGithub } from '@icons-pack/react-simple-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 

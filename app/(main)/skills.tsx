@@ -97,7 +97,8 @@ const LanguagesSession = () => (
           <strong>Java/Typescript</strong>
         </h3>
         <i className='text-xs'>
-          As linguagens do mundo Web. Sempre irei preferir trabalhar com Typescript pois passei a apreciar 'Type Safety'
+          As linguagens do mundo Web. Sempre irei preferir trabalhar com Typescript pois passei a apreciar &apos;Type
+          Safety&apos;
         </i>
       </div>
       <div className='square-panel hoverable'>

@@ -18,12 +18,16 @@ const ChangeColorButton = ({ variant = 'ghost', size = 'icon', children, ...prop
   const [selectedColor, setSelectedColor] = useState<Colors>('iris');
 
   useEffect(() => {
-    const oldColor = localStorage.getItem('data-theme-color') as Colors | null;
-    if (oldColor === null) applyThemeColor('iris');
-    else if (oldColor) {
-      applyThemeColor(oldColor);
-      setSelectedColor(oldColor);
-    }
+    const initColor = () => {
+      const oldColor = localStorage.getItem('data-theme-color') as Colors | null;
+      if (oldColor === null) applyThemeColor('iris');
+      else if (oldColor) {
+        applyThemeColor(oldColor);
+        setSelectedColor(oldColor);
+      }
+    };
+
+    initColor();
   }, []);
 
   return (
