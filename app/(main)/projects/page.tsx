@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { GamesSection } from './games';
 import { OtherProjectsSection } from './other';
+import { Suspense } from 'react';
+import { LoadingComponent } from '@/components/parts/loading';
 
 export const metadata: Metadata = {
   title: 'Kodie Sales | Projetos'
@@ -8,11 +10,13 @@ export const metadata: Metadata = {
 
 const Projects = () => {
   return (
-    <div className='@container h-full'>
+    <>
       <p className='window-title'>projects</p>
-      <GamesSection />
-      <OtherProjectsSection />
-    </div>
+      <Suspense fallback={<LoadingComponent />}>
+        <GamesSection />
+        <OtherProjectsSection />
+      </Suspense>
+    </>
   );
 };
 
