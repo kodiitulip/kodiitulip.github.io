@@ -1,5 +1,3 @@
-'use server';
-
 import { config } from 'dotenv';
 import { fetchItchGameData, GameMetadata } from 'itchio-metadata';
 import { cache } from 'react';
