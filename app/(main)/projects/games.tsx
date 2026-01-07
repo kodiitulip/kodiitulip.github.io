@@ -5,6 +5,12 @@ import Link from 'next/link';
 
 const games = [
   {
+    title: 'Frozen Inferno',
+    imgSrc: 'https://img.itch.zone/aW1nLzIzMjcyMDkzLnBuZw==/315x250%23c/L4kPQA.png',
+    itchIoPage: 'https://kodiitulip.itch.io/frozen-inferno',
+    sourceCodePage: 'https://github.com/kodiitulip/frozen-inferno'
+  },
+  {
     title: 'Windy Seas',
     imgSrc: 'https://img.itch.zone/aW1nLzI0Nzg2Mjc1LnBuZw==/315x250%23c/V5tjpI.png',
     itchIoPage: 'https://kodiitulip.itch.io/windy-seas',
@@ -12,15 +18,9 @@ const games = [
   },
   {
     title: 'Specters Case',
-    imgSrc: 'https://img.itch.zone/aW1nLzI0MTU2NjAyLnBuZw==/315x250%23c/cqmwcx.png',
+    imgSrc: 'https://img.itch.zone/aW1nLzI0OTA5MDQzLnBuZw==/315x250%23c/Mh1cBh.png',
     itchIoPage: 'https://kodiitulip.itch.io/specters-case',
     sourceCodePage: 'https://github.com/kodiitulip/specters-case'
-  },
-  {
-    title: 'Frozen Inferno',
-    imgSrc: 'https://img.itch.zone/aW1nLzIzMjcyMDkzLnBuZw==/315x250%23c/L4kPQA.png',
-    itchIoPage: 'https://kodiitulip.itch.io/frozen-inferno',
-    sourceCodePage: 'https://github.com/kodiitulip/frozen-inferno'
   },
   {
     title: 'Gestalt Game',
