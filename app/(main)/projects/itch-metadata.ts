@@ -9,6 +9,13 @@ type GameDataReturn = GameMetadata & GameDataInput;
 type GameDataInput = {
   itchIoPage: string;
   sourceCodePage: string;
+  platforms: {
+    web: boolean;
+    windows: boolean;
+    linux: boolean;
+    android: boolean;
+    mac: boolean;
+  };
 };
 
 export const getGameMetadata = cache(

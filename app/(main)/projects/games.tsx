@@ -7,23 +7,58 @@ import { getGamesMetadata } from './itch-metadata';
 const games = [
   {
     itchIoPage: 'https://kodiitulip.itch.io/frozen-inferno',
-    sourceCodePage: 'https://github.com/kodiitulip/frozen-inferno'
+    sourceCodePage: 'https://github.com/kodiitulip/frozen-inferno',
+    platforms: {
+      web: true,
+      windows: true,
+      linux: true,
+      android: false,
+      mac: false
+    }
   },
   {
     itchIoPage: 'https://kodiitulip.itch.io/windy-seas',
-    sourceCodePage: 'https://github.com/kodiitulip/windy-seas'
+    sourceCodePage: 'https://github.com/kodiitulip/windy-seas',
+    platforms: {
+      web: true,
+      windows: true,
+      linux: true,
+      android: false,
+      mac: false
+    }
   },
   {
     itchIoPage: 'https://kodiitulip.itch.io/specters-case',
-    sourceCodePage: 'https://github.com/kodiitulip/specters-case'
+    sourceCodePage: 'https://github.com/kodiitulip/specters-case',
+    platforms: {
+      web: true,
+      windows: true,
+      linux: true,
+      android: false,
+      mac: false
+    }
   },
   {
     itchIoPage: 'https://kodiitulip.itch.io/gestalt-game',
-    sourceCodePage: 'https://github.com/kodiitulip/gestalt-game'
+    sourceCodePage: 'https://github.com/kodiitulip/gestalt-game',
+    platforms: {
+      web: true,
+      windows: true,
+      linux: true,
+      android: false,
+      mac: false
+    }
   },
   {
     itchIoPage: 'https://kodiitulip.itch.io/sphinxs-gold',
-    sourceCodePage: 'https://github.com/kodiitulip/ouro-da-esfinge'
+    sourceCodePage: 'https://github.com/kodiitulip/ouro-da-esfinge',
+    platforms: {
+      web: true,
+      windows: true,
+      linux: true,
+      android: true,
+      mac: false
+    }
   }
 ];
 
@@ -34,19 +69,19 @@ export const GamesSection = async () => {
     <section
       id='games'
       className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto @xl:max-w-5xl'>
-      <h1 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Jogos</h1>
+      <h2 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Jogos</h2>
       <i className='stext-subtle text-xs @[42rem]:text-base'>
         Aqui deixo amostra meus projetos de jogos que chegaram a um estado jogável
       </i>
 
       <div className='flex w-full flex-wrap justify-around gap-x-4 gap-y-12'>
-        {gamesMetadatas.map(({ gameId, title, gamePage, coverImage, sourceCodePage, description }) => (
+        {gamesMetadatas.map(({ gameId, title, gamePage, coverImage, sourceCodePage, platforms }) => (
           <div
             key={`${gameId}`}
             className='sbg-overlay w-full max-w-120'>
-            <h1 className='my-2 text-center text-lg text-(--theme-color)'>
+            <h3 className='my-2 text-center text-lg text-(--theme-color)'>
               <strong>{title}</strong>
-            </h1>
+            </h3>
             <div className='relative aspect-video w-full'>
               <Image
                 src={coverImage}
@@ -55,7 +90,33 @@ export const GamesSection = async () => {
                 className='object-contain'
               />
             </div>
-            <p className='stext-subtle text-sm'>{description}</p>
+            <div className='mt-4 flex justify-center'>
+              {platforms.web && (
+                <i className='nf nf-dev-html5 mx-2'>
+                  <span className='sr-only'>HTML5</span>
+                </i>
+              )}
+              {platforms.linux && (
+                <i className='nf nf-dev-linux mx-2'>
+                  <span className='sr-only'>LINUX</span>
+                </i>
+              )}
+              {platforms.windows && (
+                <i className='nf nf-dev-windows mx-2'>
+                  <span className='sr-only'>WINDOWS</span>
+                </i>
+              )}
+              {platforms.mac && (
+                <i className='nf nf-dev-apple mx-2'>
+                  <span className='sr-only'>MAC/APPLE</span>
+                </i>
+              )}
+              {platforms.android && (
+                <i className='nf nf-dev-android mx-2'>
+                  <span className='sr-only'>ANDROID</span>
+                </i>
+              )}
+            </div>
             <div className='panel flex-col justify-between md:flex-row'>
               <Button
                 variant='link'

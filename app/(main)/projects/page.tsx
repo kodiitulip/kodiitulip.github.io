@@ -11,7 +11,8 @@ export const metadata: Metadata = {
 const Projects = () => {
   return (
     <>
-      <p className='window-title'>projects</p>
+      <h1 className='window-title'>projects</h1>
+      {/* <LoadingComponent /> */}
       <Suspense fallback={<LoadingComponent />}>
         <GamesSection />
         <OtherProjectsSection />

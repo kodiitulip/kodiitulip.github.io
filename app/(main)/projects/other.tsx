@@ -31,7 +31,7 @@ export const OtherProjectsSection = () => {
     <section
       id='other'
       className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto @xl:max-w-5xl'>
-      <h1 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Outros Projetos</h1>
+      <h2 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Outros Projetos</h2>
       <i className='stext-subtle text-xs @[42rem]:text-base'>
         Aqui deixo amostra meus projetos que não são especificamente jogos
       </i>
@@ -41,9 +41,9 @@ export const OtherProjectsSection = () => {
           <div
             key={`${title}-${idx}`}
             className='sbg-overlay w-full max-w-120'>
-            <h1 className='my-2 text-center text-lg text-(--theme-color)'>
+            <h3 className='my-2 text-center text-lg text-(--theme-color)'>
               <strong>{title}</strong>
-            </h1>
+            </h3>
             <div className='relative aspect-video w-full'>
               <Image
                 src={imgSrc}
