@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Button, ButtonProps } from './button';
 import {
   DropdownMenu,
@@ -10,25 +10,21 @@ import {
   DropdownMenuTrigger
 } from './dropdown-menu';
 import { PaletteIcon } from 'lucide-react';
+import { Colors, useGlobalTheme } from '@/store/use-theme';
 
 type Props = Omit<ButtonProps, 'onClick'>;
-type Colors = 'love' | 'gold' | 'rose' | 'pine' | 'foam' | 'iris';
 
 const ChangeColorButton = ({ variant = 'ghost', size = 'icon', children, ...props }: Props) => {
-  const [selectedColor, setSelectedColor] = useState<Colors>('iris');
+  const { color, setColor } = useGlobalTheme();
 
   useEffect(() => {
-    const initColor = () => {
-      const oldColor = localStorage.getItem('data-theme-color') as Colors | null;
-      if (oldColor === null) applyThemeColor('iris');
-      else if (oldColor) {
-        applyThemeColor(oldColor);
-        setSelectedColor(oldColor);
-      }
-    };
-
-    initColor();
-  }, []);
+    try {
+      const localTheme = JSON.parse(localStorage.getItem('data-theme') ?? '{}');
+      if (localTheme['state']) document.documentElement.setAttribute('data-theme-color', localTheme['state']['color']);
+    } catch (err) {
+      console.error(err);
+    }
+  }, [color]);
 
   return (
     <DropdownMenu>
@@ -45,9 +41,9 @@ const ChangeColorButton = ({ variant = 'ghost', size = 'icon', children, ...prop
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuRadioGroup
-          value={selectedColor}
+          value={color}
           className='flex flex-col gap-3'
-          onValueChange={(value) => setSelectedColor(applyThemeColor(value as Colors))}>
+          onValueChange={(value) => setColor(value as Colors | 'love')}>
           {['love', 'gold', 'rose', 'pine', 'foam', 'iris'].map((value) => (
             <DropdownMenuRadioItem
               value={value}
@@ -66,12 +62,6 @@ const ChangeColorButton = ({ variant = 'ghost', size = 'icon', children, ...prop
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
-
-const applyThemeColor = (color: Colors) => {
-  document.documentElement.setAttribute('data-theme-color', color);
-  localStorage.setItem('data-theme-color', color);
-  return color;
 };
 
 export { ChangeColorButton };

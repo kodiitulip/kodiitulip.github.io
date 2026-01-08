@@ -37,8 +37,10 @@ const Navbar = () => {
       <div className='window-border my-0 flex items-center gap-2'>
         <p className='window-right-title'>nav</p>
         <p className='window-title'>user</p>
-        <i className='nf nf-md-robot_love' />
-        <strong className='flex-1'>Kodie</strong>
+        <div className='flex flex-1 items-center text-(--theme-color)'>
+          <i className='nf nf-md-robot_love mr-2 leading-2.5' />
+          <strong>Kodie</strong>
+        </div>
 
         <div className='hidden items-center gap-2 @[42rem]:flex'>
           {items.map(({ title, url, requiredPath }) => (

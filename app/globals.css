@@ -100,7 +100,7 @@
 }
 
 @utility theme-data-color {
-  @apply theme-color-iris;
+  @apply theme-color-plate;
   &:is([data-theme-color='love'] *) {
     @apply theme-color-love;
   }

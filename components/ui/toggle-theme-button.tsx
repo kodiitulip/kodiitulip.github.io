@@ -2,42 +2,34 @@
 
 import { Moon, Sun } from 'lucide-react';
 import { Button, ButtonProps } from './button';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useGlobalTheme } from '@/store/use-theme';
 
 type Props = Omit<ButtonProps, 'onClick'>;
 
 const ToggleThemeButton = ({ variant = 'ghost', size = 'icon', children, ...props }: Props) => {
-  const [theme, setTheme] = useState<'dawn' | 'default'>('default');
+  const { theme, toggleTheme, setTheme } = useGlobalTheme();
 
   useEffect(() => {
-    const initialTheme = () => {
-      const newTheme = localStorage.getItem('data-theme')
-        ? (localStorage.getItem('data-theme') as 'dawn' | 'default')
-        : window.matchMedia('(prefers-color-scheme: light)').matches
-          ? 'dawn'
-          : 'default';
-      setTheme(applyTheme(newTheme));
-    };
-
-    initialTheme();
-  }, []);
+    try {
+      const localTheme = JSON.parse(localStorage.getItem('data-theme') ?? '{}');
+      if (localTheme['state']) document.documentElement.setAttribute('data-theme', localTheme['state']['theme']);
+      else setTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'dawn' : 'moon');
+    } catch (err) {
+      console.error(err);
+    }
+  }, [theme, setTheme]);
   return (
     <Button
       {...props}
       variant={variant}
       size={size}
-      onClick={() => setTheme((prev) => applyTheme(prev === 'dawn' ? 'default' : 'dawn'))}>
+      onClick={toggleTheme}>
       {theme === 'dawn' ? <Sun size={24} /> : <Moon size={24} />}
       <span className='sr-only'>Toggle dark and light theme</span>
       {children}
     </Button>
   );
-};
-
-const applyTheme = (theme: 'dawn' | 'default') => {
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('data-theme', theme);
-  return theme;
 };
 
 export { ToggleThemeButton };

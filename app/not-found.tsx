@@ -4,9 +4,13 @@ import Link from 'next/link';
 
 const NotFound = () => {
   return (
-    <section className='m-auto flex h-full max-w-140 flex-col items-center justify-center gap-4 text-center'>
-      <i className='nf nf-md-robot_confused stext-iris text-6xl' />
-      <h1 className='stext-iris shrink-0 text-2xl font-bold'>Parece que você se perdeu.</h1>
+    <section
+      id='not-found'
+      className='absolute top-1/2 left-1/2 flex max-w-140 -translate-1/2 flex-col items-center justify-center gap-4 text-center text-(--theme-color)'>
+      <i className='nf nf-md-robot_confused text-6xl'>
+        <span className='sr-only'>Robô confuso</span>
+      </i>
+      <h1 className='shrink-0 text-2xl'>Parece que você se perdeu.</h1>
       <Button
         size='lg'
         asChild>
