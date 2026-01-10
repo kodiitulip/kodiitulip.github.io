@@ -11,7 +11,7 @@ import {
 } from './dropdown-menu';
 import { PaletteIcon } from 'lucide-react';
 import { Colors, GlobalThemeData, useGlobalTheme } from '@/store/use-theme';
-import { parseJSON } from '@/lib/utils';
+import { parseJSON, setHTMLAttribute } from '@/lib/utils';
 
 type Props = Omit<ButtonProps, 'onClick'>;
 
@@ -19,13 +19,8 @@ const ChangeColorButton = ({ variant = 'ghost', size = 'icon', children, ...prop
   const { color, setColor } = useGlobalTheme();
 
   useEffect(() => {
-    try {
-      const localTheme = parseJSON(localStorage.getItem('data-theme') ?? '');
-      if (localTheme !== null)
-        document.documentElement.setAttribute('data-theme-color', (localTheme as GlobalThemeData)['state']['color']);
-    } catch (err) {
-      console.error(err);
-    }
+    const localTheme = parseJSON(localStorage.getItem('data-theme') ?? 'null') as GlobalThemeData | null;
+    if (localTheme !== null) setHTMLAttribute('data-theme-color', localTheme['state']['color']);
   }, [color]);
 
   return (
