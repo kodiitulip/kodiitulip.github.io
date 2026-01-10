@@ -57,6 +57,10 @@ export default function RootLayout({
           name='perplexity-ai'
           content='noai'
         />
+        <meta
+          name='google-site-verification'
+          content='eqg9h5KM_WmTBnO1lsSGfFGIpqTRw32FHZJeRJeFDj8'
+        />
       </head>
       <body className='theme-data-color flex min-h-full flex-col antialiased'>
         <Navbar />
