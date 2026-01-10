@@ -12,6 +12,8 @@ type GlobalThemeState = {
   setColor: (color: Colors) => void;
 };
 
+export type GlobalThemeData = { state: Omit<GlobalThemeState, 'toggleTheme' | 'setTheme' | 'setColor'> };
+
 export const useGlobalTheme = create(
   persist<GlobalThemeState>(
     (set, get) => ({

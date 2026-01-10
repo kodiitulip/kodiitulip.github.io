@@ -3,7 +3,8 @@
 import { Moon, Sun } from 'lucide-react';
 import { Button, ButtonProps } from './button';
 import { useEffect } from 'react';
-import { useGlobalTheme } from '@/store/use-theme';
+import { GlobalThemeData, useGlobalTheme } from '@/store/use-theme';
+import { parseJSON } from '@/lib/utils';
 
 type Props = Omit<ButtonProps, 'onClick'>;
 
@@ -11,13 +12,10 @@ const ToggleThemeButton = ({ variant = 'ghost', size = 'icon', children, ...prop
   const { theme, toggleTheme, setTheme } = useGlobalTheme();
 
   useEffect(() => {
-    try {
-      const localTheme = JSON.parse(localStorage.getItem('data-theme') ?? '{}');
-      if (localTheme['state']) document.documentElement.setAttribute('data-theme', localTheme['state']['theme']);
-      else setTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'dawn' : 'moon');
-    } catch (err) {
-      console.error(err);
-    }
+    const localTheme = parseJSON(localStorage.getItem('data-theme') ?? '');
+    if (localTheme !== null)
+      document.documentElement.setAttribute('data-theme', (localTheme as GlobalThemeData)['state']['theme']);
+    else setTheme(window.matchMedia('(prefers-color-scheme: light)').matches ? 'dawn' : 'moon');
   }, [theme, setTheme]);
   return (
     <Button

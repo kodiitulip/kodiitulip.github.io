@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { LoadingComponent } from '@/components/parts/loading';
 
 export const metadata: Metadata = {
-  title: 'Kodie Sales | Projetos'
+  title: 'Projetos'
 };
 
 const Projects = () => {
