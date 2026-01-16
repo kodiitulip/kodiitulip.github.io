@@ -1,8 +1,5 @@
-import { config } from 'dotenv';
 import { NextRequest } from 'next/server';
 import { cache } from 'react';
-
-config({ path: '.env.local' });
 
 type ItchIoGameData = {
   id: number;
