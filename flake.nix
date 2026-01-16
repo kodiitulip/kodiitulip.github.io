@@ -1,5 +1,5 @@
 {
-  description = "A basic flake with a shell";
+  description = "Bun with NextJS";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
