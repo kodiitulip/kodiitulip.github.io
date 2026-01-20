@@ -1,5 +1,5 @@
 import { LoadingComponent } from '@/components/parts/loading';
 
-const Loading = () => <LoadingComponent />;
+const Loading = () => <LoadingComponent absolute />;
 
 export default Loading;

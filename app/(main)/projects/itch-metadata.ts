@@ -24,14 +24,21 @@ type ItchIoGameData = {
 
 type SortableModes = 'id' | 'title' | 'published_at' | 'created_at';
 
-type AppendedGameData = ItchIoGameData & { source_code: string };
+export type AppendedGameData = ItchIoGameData & { source_code: string };
 
 export const fetchItchIoPublishedGames = cache(
   async (sortBy: SortableModes = 'published_at'): Promise<AppendedGameData[]> => {
-    const req = new NextRequest('https://itch.io/api/1/key/my-games', { method: 'GET' });
-    req.headers.append('Authorization', 'Bearer ' + process.env.ITCH_API_KEY);
+    const req = new NextRequest('https://itch.io/api/1/key/my-games', {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + (process.env.ITCH_API_KEY ?? process.env.NEXT_PUBLIC_ITCH_API_KEY)
+      }
+    });
 
-    const data: { games: ItchIoGameData[] } = await fetch(req).then((res) => res.json());
+    const data: { games: ItchIoGameData[]; errors: string | string[] } = await fetch(req)
+      .then((res) => res.json())
+      .catch((err) => console.error('Error: ', err));
+    if (!data || data.errors) return [];
     const res: AppendedGameData[] = data.games
       .map((game) => {
         const githubRepoBase = 'https://github.com/kodiitulip/';

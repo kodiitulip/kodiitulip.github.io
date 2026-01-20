@@ -2,11 +2,11 @@ import { Button } from '@/components/ui/button';
 import { SiGithub, SiItchdotio } from '@icons-pack/react-simple-icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import { fetchItchIoPublishedGames } from './itch-metadata';
+import { AppendedGameData } from './itch-metadata';
+import { use } from 'react';
 
-export const GamesSection = async () => {
-  const gamesMetadatas = await fetchItchIoPublishedGames();
-
+export const GamesSection = ({ gamesInfo }: { gamesInfo: Promise<AppendedGameData[]> }) => {
+  const data = use(gamesInfo);
   return (
     <section
       id='games'
@@ -17,7 +17,7 @@ export const GamesSection = async () => {
       </i>
 
       <div className='flex w-full flex-wrap justify-around gap-x-4 gap-y-12'>
-        {gamesMetadatas.map(({ id, title, url, cover_url, short_text, source_code }) => (
+        {data.map(({ id, title, url, cover_url, short_text, source_code }) => (
           <div
             key={id}
             className='sbg-overlay w-full max-w-120'>
@@ -29,6 +29,7 @@ export const GamesSection = async () => {
                 src={cover_url}
                 alt={`Banner de um jogo chamado ${title}`}
                 fill
+                loading='eager'
                 className='object-contain'
               />
             </div>
