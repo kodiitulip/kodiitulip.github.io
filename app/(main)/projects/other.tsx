@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import { use } from 'react';
 
 const projects = [
   {
@@ -26,7 +27,13 @@ const projects = [
   }
 ];
 
-export const OtherProjectsSection = () => {
+type Project = {
+  title: string;
+  imgSrc: string;
+  sourceCodePage: string;
+};
+
+export const OtherProjectsSection = ({ otherProjects: data }: { otherProjects: Project[] }) => {
   return (
     <section
       id='other'
@@ -37,7 +44,7 @@ export const OtherProjectsSection = () => {
       </i>
 
       <div className='flex w-full flex-wrap justify-around gap-x-4 gap-y-12'>
-        {projects.map(({ title, imgSrc, sourceCodePage }, idx) => (
+        {data.map(({ title, imgSrc, sourceCodePage }, idx) => (
           <div
             key={`${title}-${idx}`}
             className='sbg-overlay w-full max-w-120'>

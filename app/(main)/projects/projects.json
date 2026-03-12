@@ -1,0 +1,32 @@
+{
+  "other": [
+    {
+      "title": "Esse Site!",
+      "imgSrc": "/images/site.png",
+      "sourceCodePage": "https://github.com/kodiitulip/kodiitulip.github.io"
+    },
+    {
+      "title": "Sistema de construção 3D na Godot",
+      "imgSrc": "/images/3dbuild.png",
+      "sourceCodePage": "https://github.com/kodiitulip/3d-building-system"
+    },
+    {
+      "title": "Camera 3D para RTS na Godot",
+      "imgSrc": "/images/rtscam.png",
+      "sourceCodePage": "https://github.com/kodiitulip/strategy-game-camera"
+    },
+    {
+      "title": "Sistema de construção 2D na Godot",
+      "imgSrc": "/images/2dbuild.gif",
+      "sourceCodePage": "https://github.com/kodiitulip/dynamic-building-system"
+    }
+  ],
+  "participated": [
+    {
+      "title": "DiaboA4",
+      "url": "https://cafundogames.itch.io/diaboa4",
+      "cover_url": "https://img.itch.zone/aW1nLzI2MDg5NjU2LnBuZw==/315x250%23c/mJSqst.png",
+      "short_text": "Carimbe seus inimigos para sair do inferno!"
+    }
+  ]
+}

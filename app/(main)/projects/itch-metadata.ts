@@ -15,11 +15,6 @@ type ItchIoGameData = {
   type: 'default' | 'html' | string;
   published_at: Date;
   created_at: Date;
-  // downloads_count: number;
-  // min_price: number;
-  // purchases_count: number;
-  // views_count: number;
-  // earnings: object[];
 };
 
 type SortableModes = 'id' | 'title' | 'published_at' | 'created_at';
@@ -35,13 +30,13 @@ export const fetchItchIoPublishedGames = cache(
       }
     });
 
+    const githubRepoBase = 'https://github.com/kodiitulip/';
     const data: { games: ItchIoGameData[]; errors: string | string[] } = await fetch(req)
       .then((res) => res.json())
       .catch((err) => console.error('Error: ', err));
     if (!data || data.errors) return [];
     const res: AppendedGameData[] = data.games
       .map((game) => {
-        const githubRepoBase = 'https://github.com/kodiitulip/';
         const githubRepo = githubRepoBase + game.url.split('/').pop();
         return { ...game, source_code: githubRepo };
       })
@@ -50,3 +45,5 @@ export const fetchItchIoPublishedGames = cache(
     return res;
   }
 );
+
+export const fetchItchIoExternalGame = cache(async (user: string, game: string) => {});

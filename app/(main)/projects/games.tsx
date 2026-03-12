@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AppendedGameData } from './itch-metadata';
 import { use } from 'react';
+import { participated } from './projects.json';
 
 export const GamesSection = ({ gamesInfo }: { gamesInfo: Promise<AppendedGameData[]> }) => {
   const data = use(gamesInfo);
@@ -37,7 +38,7 @@ export const GamesSection = ({ gamesInfo }: { gamesInfo: Promise<AppendedGameDat
             <div className='panel flex-col justify-between md:flex-row'>
               <Button
                 variant='link'
-                className='w-fit'
+                className='mx-auto w-fit'
                 asChild>
                 <Link
                   href={url}
@@ -47,12 +48,59 @@ export const GamesSection = ({ gamesInfo }: { gamesInfo: Promise<AppendedGameDat
               </Button>
               <Button
                 variant='link'
-                className='w-fit'
+                className='mx-auto w-fit'
                 asChild>
                 <Link
                   href={source_code}
                   target='_blank'>
                   <SiGithub size={16} /> Código Fonte
+                </Link>
+              </Button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export const ParticipatedSection = () => {
+  return (
+    <section
+      id='games'
+      className='mx-8 my-12 flex max-w-140 flex-col gap-4 py-6 @lg:mx-auto @xl:max-w-5xl'>
+      <h2 className='text-lg font-medium text-(--theme-color) @sm:text-2xl @[43rem]:text-4xl'>Outros Jogos</h2>
+      <i className='stext-subtle text-xs @[42rem]:text-base'>
+        Aqui alguns jogos em que participei da equipe de desenvolvimento
+      </i>
+
+      <div className='flex w-full flex-wrap justify-around gap-x-4 gap-y-12'>
+        {participated.map(({ title, url, cover_url, short_text }, idx) => (
+          <div
+            key={`${idx}-${title}`}
+            className='sbg-overlay w-full max-w-120'>
+            <h3 className='my-2 text-center text-lg text-(--theme-color)'>
+              <strong>{title}</strong>
+            </h3>
+            <div className='relative aspect-video w-full'>
+              <Image
+                src={cover_url}
+                alt={`Banner de um jogo chamado ${title}`}
+                fill
+                loading='eager'
+                className='object-contain'
+              />
+            </div>
+            <i className='stext-subtle line-clamp-2 p-4 pb-0'>{short_text}</i>
+            <div className='panel flex-col justify-between md:flex-row'>
+              <Button
+                variant='link'
+                className='mx-auto w-fit'
+                asChild>
+                <Link
+                  href={url}
+                  target='_blank'>
+                  <SiItchdotio size={16} /> Página Itch.io
                 </Link>
               </Button>
             </div>

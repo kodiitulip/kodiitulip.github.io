@@ -16,7 +16,7 @@ const HeroSection = () => {
       </i>
       <Button
         asChild
-        className='max-w-fit'
+        className='mx-auto max-w-fit'
         size='lg'>
         <Link href='/projects'>
           <Gamepad2Icon />
