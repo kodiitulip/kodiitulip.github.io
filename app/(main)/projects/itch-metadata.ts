@@ -45,5 +45,3 @@ export const fetchItchIoPublishedGames = cache(
     return res;
   }
 );
-
-export const fetchItchIoExternalGame = cache(async (user: string, game: string) => {});
