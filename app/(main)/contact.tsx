@@ -35,7 +35,7 @@ const ContactSection = () => {
           <p className='text-sm'>kodiitulip.itch.io</p>
         </Link>
         <Link
-          href='https://https://discord.com/users/itskodiie.png'
+          href='https://discordapp.com/users/493120959264456707'
           target='_blank'
           className={cn(buttonVariants({ variant: 'link', className: 'sbg-overlay h-max p-4' }))}>
           <SiDiscord size={20} />
