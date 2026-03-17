@@ -1,6 +1,6 @@
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { SiGithub, SiItchdotio } from '@icons-pack/react-simple-icons';
+import { SiDiscord, SiGithub, SiItchdotio } from '@icons-pack/react-simple-icons';
 import { MailIcon } from 'lucide-react';
 import Link from 'next/link';
 
@@ -14,11 +14,11 @@ const ContactSection = () => {
       </h2>
       <div className='grid auto-cols-fr justify-around gap-4 @lg:grid-cols-2'>
         <Link
-          href='mailto:kodii.tulip@gmail.com'
+          href='mailto:kodii.tulip@proton.me'
           target='_blank'
           className={cn(buttonVariants({ variant: 'link', className: 'sbg-overlay h-max p-4' }))}>
           <MailIcon size={20} />
-          <p className='text-sm'>kodii.tulip@gmail.com</p>
+          <p className='text-sm'>kodii.tulip@proton.me</p>
         </Link>
         <Link
           href='https://github.com/kodiitulip'
@@ -33,6 +33,13 @@ const ContactSection = () => {
           className={cn(buttonVariants({ variant: 'link', className: 'sbg-overlay h-max p-4' }))}>
           <SiItchdotio size={20} />
           <p className='text-sm'>kodiitulip.itch.io</p>
+        </Link>
+        <Link
+          href='https://https://discord.com/users/itskodiie.png'
+          target='_blank'
+          className={cn(buttonVariants({ variant: 'link', className: 'sbg-overlay h-max p-4' }))}>
+          <SiDiscord size={20} />
+          <p className='text-sm'>@itskodiie.png</p>
         </Link>
       </div>
     </section>
